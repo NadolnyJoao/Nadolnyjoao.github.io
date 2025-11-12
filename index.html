@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Home</title>
+</head>
+
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#formacao">Formação</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#idiomas">Idiomas</a>
+    </div>
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776; Menu</button>
+        <div class="botoes">
+            <button class="fontbutton" onclick="mudarFonte('Roboto')">Roboto</button>
+            <button class="fontbutton" onclick="mudarFonte('Lobster')">Lobster</button>
+            <button class="fontbutton" onclick="mudarFonte('Montserrat')">Montserrat</button>
+        </div>
+
+        <header class="titulo">
+            <h1 id="titulo">Currículo João Vitor Nadolny</h1>
+        </header>
+
+        <div class="img-container">
+            <img id="image"  src="Imagem/chefe.png" alt="Imagem de um bolo de chocolate" width="200" height="150">
+            <div id="perfil">
+                <p id="titulo2">Enquanto no IFPR, participei de diversos projetos em grupo de game design, e
+                    matérias
+                    relacionadas ao desenvolvimento em jogos, com destaque à parte criativa dos jogos
+                    trabalhados e participei ativamente na criação de anúncios para diversas empresas, como a
+                    G2 Corretores e a Vendas Diretas, aumentando significativamente a quantidade de vendas
+                    em todas as vezes. Sempre trabalhei em grupo e sei coordenar uma união da equipe.
+                </p>
+            </div>
+        </div>
+
+        <section>
+            <h2 id="formacao">Formação Acadêmica</h2>
+            <p>Técnico Integrado ao Ensino Médio em Programação de Jogos Digitais<br>
+                Instituto Técnico Federal do Paraná - Campus Curitiba<br>
+                Jan 2022 - atual</p>
+
+            <h2 id="experiencia">Experiência</h2>
+            <ul>
+            <li>G2 Corretores</li>
+            <li>2020 - 2021</li>
+            <li>Trabalhei no desenvolvimento de anúncios de imóveis</li>
+            <li>Vendas Diretas</li>
+            <li>Jan/2021 - Out/2021</li>
+            <li>Trabalhei vendendo produtos digitais pelo WhatsApp e criando anúncios dos produtos.</li>
+            </ul>
+            <h2 id="habilidades">Habilidades e Competências</h2>
+            <ul>
+                <li>Boa desenvoltura com o público</li>
+                <li> Capacidade de trabalhar em equipe</li>
+                <li>Gentileza nos relacionamentos interpessoais</li>
+                <li>Facilidade com tecnologia e redes sociais</li>
+                <li>Motivação para o aprendizado e desenvolvimento pessoal constante</li>
+            </ul>
+            <h2 id="idiomas">Idiomas</h2>
+            <ul>
+            <li>Português avançado</li>
+            <li>Inglês intermediário</li>
+        </ul>   
+        <div class="carrossel-container">
+            <h2>Projetos</h2>
+            <div class="carrossel">
+                <button class="carrossel-btn" onclick="mudarImagens(-1)">&#10094;</button>
+                <div class="carrossel-imagens" id="carrossel-imagens">
+                    </div>
+                <button class="carrossel-btn" onclick="mudarImagens(1)">&#10095;</button>
+            </div>
+        </div>
+            </section>
+        <footer class="rodape">
+            <p>&copy; 2025 João Vitor Nadolny</p>
+        </footer>
+    </div>
+
+
+    <script src="JS/javascript.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if scripts are loading
+        console.log('DOM fully loaded');
+        // Initialize sidebar
+        closeNav(); // Ensure sidebar starts closed
+    });
+    </script>
+</body>
+
+</html>
