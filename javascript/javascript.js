@@ -1,39 +1,39 @@
 // Remove duplicate closeNav
 const imagens = [
-{
-  src:  "img/Archetype.png",
-  titulo: "Archetype",
-  data: "Fevereiro 2025",
-  descricao: "ArcheType é um jogo infantil criado para um público de 10 a 12 anos, com o objetivo educacional de ensinar sobre a história da arte, e mostrar para as crianças de forma divertida, a evolução da arte no planeta terra. O jogo é do estilo plataforma 2D, ambientado em diversas épocas de pinturas famosas, onde o jogador, deve passar por cada fase até completar a visita ao museu de história da arte.",
-  largura: "300px",
-  altura: "auto"
-},
-{
-  src: "img/BoraRoom.png",
-  titulo: "Bora Bill Room",
-  data: "Março de 2024",
-  descricao: "O jogo se passa em uma realidade alternativa com inspirações no movimento surrealista. Sendo um jogo de quebra cabeça e desafios lógicos, o jogador deve enfrentar os objetivos para chegar a conclusão do jogo por meio de dois finais, um sendo óbvio, portanto o final ruim, e o outro, o final bom é difícil de ser encontrado, exigindo muita capacidade de raciocínio por parte do jogador. Por conta desses fatores, o jogo foi pensado para adolescentes a partir de 15 anos.",
-  largura: "300px",
-  altura: "auto"
-},
-{
-  src:  "img/MysteryMannor.png",
-  titulo: "Mystery Mannor",
-  data: "Março de 2024",
-  descricao: "Mystery Manor é um jogo de puzzle onde o protagonista misteriosamente acorda em uma mansão e tem que procurar uma saída. O jogo foi desenvolvido para um público de 12 a 15 anos, interessados em jogos de investigação e quebra cabeças, com o intuito de desenvolver o raciocínio lógico dos adolescentes de forma divertida e cativante.",
-  largura: "300px",
-  altura: "auto"
-},
-{
-  src: "img/SuperCoocking.png",
-  titulo: "Super Coocking",
-  data: "agosto de 2024",
-  descricao: "O jogo foi pensado como um simulador de culinária, onde o jogador pode escolher entre diversas receitas para agradar os clientes de um renomado restaurante.  O jogo requer reflexos rápidos e concentração total do jogador para concluir as receitas de forma mais eficiente possível. Esse jogo é pensado para crianças de 10 a adolescentes de 17 anos, atendendo uma grande variedade de públicos por ser um jogo simples de entender e divertido de jogar",
-  largura: "300px",
-  altura: "auto",
-  link: "Menu.html"
-}
-]
+  {
+    src: "img/Archetype.png",
+    titulo: "Archetype",
+    data: "Fevereiro 2025",
+    descricao: "ArcheType é um jogo infantil criado para um público de 10 a 12 anos, com o objetivo educacional de ensinar sobre a história da arte, e mostrar para as crianças de forma divertida, a evolução da arte no planeta terra. O jogo é do estilo plataforma 2D, ambientado em diversas épocas de pinturas famosas, onde o jogador, deve passar por cada fase até completar a visita ao museu de história da arte.",
+    largura: "300px",
+    altura: "auto"
+  },
+  {
+    src: "img/BoraRoom.png",
+    titulo: "Bora Bill Room",
+    data: "Março de 2024",
+    descricao: "O jogo se passa em uma realidade alternativa com inspirações no movimento surrealista. Sendo um jogo de quebra cabeça e desafios lógicos, o jogador deve enfrentar os objetivos para chegar a conclusão do jogo por meio de dois finais, um sendo óbvio, portanto o final ruim, e o outro, o final bom é difícil de ser encontrado, exigindo muita capacidade de raciocínio por parte do jogador. Por conta desses fatores, o jogo foi pensado para adolescentes a partir de 15 anos.",
+    largura: "300px",
+    altura: "auto"
+  },
+  {
+    src: "img/MysteryMannor.png",
+    titulo: "Mystery Mannor",
+    data: "Março de 2024",
+    descricao: "Mystery Manor é um jogo de puzzle onde o protagonista misteriosamente acorda em uma mansão e tem que procurar uma saída. O jogo foi desenvolvido para um público de 12 a 15 anos, interessados em jogos de investigação e quebra cabeças, com o intuito de desenvolver o raciocínio lógico dos adolescentes de forma divertida e cativante.",
+    largura: "300px",
+    altura: "auto"
+  },
+  {
+    src: "img/SuperCoocking.png",
+    titulo: "Super Coocking",
+    data: "Agosto de 2024",
+    descricao: "O jogo foi pensado como um simulador de culinária, onde o jogador pode escolher entre diversas receitas para agradar os clientes de um renomado restaurante. O jogo requer reflexos rápidos e concentração total do jogador para concluir as receitas de forma mais eficiente possível. Esse jogo é pensado para crianças de 10 a adolescentes de 17 anos, atendendo uma grande variedade de públicos por ser um jogo simples de entender e divertido de jogar.",
+    largura: "300px",
+    altura: "auto"
+  }
+];
+
 let indiceAtual = 0;
 const imagensPorTela = 3;
 
@@ -65,12 +65,6 @@ function exibirImagens() {
     img.title = imagemInfo.descricao;
 
     img.onclick = function () {
-      // Check if this is Super Coocking
-      if (imagemInfo.titulo === "Super Coocking" && imagemInfo.link) {
-        window.location.href = imagemInfo.link;
-        return;
-      }
-
       const popup = window.open("", "popup_index", "width=850,height=700,resizable=yes,scrollbars=yes");
 
       if (popup) {
@@ -96,6 +90,18 @@ function exibirImagens() {
                   .info {
                       margin-bottom: 10px;
                   }
+                  .button-container {
+                      margin-top: 20px;
+                  }
+                  .action-button {
+                      padding: 10px 20px;
+                      font-size: 16px;
+                      cursor: pointer;
+                      border: none;
+                      background-color: #4CAF50;
+                      color: white;
+                      border-radius: 5px;
+                  }
               </style>
           </head>
           <body>
@@ -103,6 +109,18 @@ function exibirImagens() {
               <div class="info"><strong>Data de criação:</strong> ${imagemInfo.data}</div>
               <img src="${imagemInfo.src}" alt="${imagemInfo.titulo}">
               <p><strong>Descrição:</strong> ${imagemInfo.descricao}</p>
+              ${
+                imagemInfo.titulo === "Super Coocking"
+                  ? `
+                    <!-- Button Section -->
+                    <div class="button-container">
+                        <button class="action-button" onclick="window.opener.location.href='menu.html'; window.close();">
+                            Ir para o Menu
+                        </button>
+                    </div>
+                  `
+                  : ""
+              }
           </body>
           </html>
         `);
@@ -112,6 +130,7 @@ function exibirImagens() {
         alert("Por favor, permita pop-ups para visualizar as informações.");
       }
     };
+
     container.appendChild(img);
   }
 }

@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/estilos.css">
-    <title>Menu - Super Coocking</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Menu - Super Cooking</title>
     <style>
       html, body {
         height: 100%;
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
       }
-      
+
       #main {
         position: relative;
       }
@@ -25,7 +24,7 @@
         z-index: 1000;
       }
 
-      /* Use the start image as a full-screen background */
+      /* Usando a imagem de fundo como tela cheia */
       body {
         background-image: url('img/start.png');
         background-size: cover;
@@ -38,7 +37,7 @@
         color: #fff;
       }
 
-      /* A centered overlay if you want text or a visible clickable image */
+      /* Overlay centralizado para texto ou imagem visível */
       .wrap {
         position: relative;
         width: 100%;
@@ -47,10 +46,10 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        pointer-events: none; /* let the image handle clicks */
+        pointer-events: none; /* Deixa a imagem lidar com os cliques */
       }
 
-      /* Show a visible start image in the center for affordance and click target */
+      /* Imagem clicável no centro */
       #startImage {
         max-width: 90vw;
         max-height: 90vh;
@@ -59,10 +58,10 @@
         display: block;
         margin: 0 auto;
         cursor: pointer;
-        pointer-events: auto; /* enable clicks on the image */
+        pointer-events: auto; /* Habilita cliques na imagem */
       }
 
-      /* Small hint text (optional) */
+      /* Texto pequeno (opcional) */
       .hint {
         position: absolute;
         bottom: 24px;
@@ -70,58 +69,72 @@
         right: 0;
         text-align: center;
         font-size: 14px;
-        color: rgba(255,255,255,0.9);
+        color: rgba(255, 255, 255, 0.9);
         pointer-events: none;
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+    <!-- Barra lateral -->
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Voltar ao Portfólio</a>
     </div>
 
+    <!-- Conteúdo principal -->
     <div id="main">
+        <!-- Botão de abrir a barra lateral -->
         <button class="openbtn" onclick="openNav()">&#9776;</button>
         
         <div class="wrap">
-            <!-- Visible, clickable image in center. Background also uses the image to fill the screen. -->
+            <!-- Imagem visível e clicável no centro -->
             <img id="startImage" src="img/start.png" alt="Start game" />
-            <div class="hint">Press Enter to start or click the image</div>
+            <div class="hint">Pressione Enter para começar ou clique na imagem</div>
         </div>
     </div>
 
-  <script src="JS/javascript.js"></script>
-  <script>
-    // Initialize sidebar in closed state
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-    });
+    <!-- Script -->
+    <script src="javascript/javascript.js"></script>
+    <script>
+        // Função para abrir a barra lateral
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
 
-    // Navigate to the game page
-    function goToGame() {
-      // Use a relative path to the game file
-      location.href = 'AbelhaGame.html';
-    }
+        // Função para fechar a barra lateral
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
 
-    // Start on Enter key
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.keyCode === 13) {
-        goToGame();
-      }
-    });
+        // Função para redirecionar para o jogo
+        function goToGame() {
+            // Aqui você deve garantir que o caminho para 'abelhagame.html' está correto
+            // Se o arquivo 'abelhagame.html' estiver na mesma pasta, use o código abaixo:
+            location.href = 'abelhagame.html';
 
-    // Start when clicking the start image
-    var img = document.getElementById('startImage');
-    if (img) {
-      img.addEventListener('click', goToGame);
-      // Make image focusable for keyboard users
-      img.setAttribute('tabindex', '0');
-      img.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter' || e.keyCode === 13) goToGame();
-      });
-    }
-  </script>
+            // Caso o arquivo esteja em uma subpasta, ajuste o caminho, por exemplo:
+            // location.href = 'games/abelhagame.html';
+        }
+
+        // Começar ao pressionar a tecla Enter
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+                goToGame();
+            }
+        });
+
+        // Começar ao clicar na imagem
+        var img = document.getElementById('startImage');
+        if (img) {
+            img.addEventListener('click', goToGame);
+            // Torna a imagem focável para usuários de teclado
+            img.setAttribute('tabindex', '0');
+            img.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter' || e.keyCode === 13) goToGame();
+            });
+        }
+    </script>
 </body>
 </html>
